@@ -1,7 +1,9 @@
 package lv.tele2.javaschool.phonebook;
 
 import com.sun.prism.impl.Disposer;
+import sun.plugin2.message.Serializer;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -9,7 +11,8 @@ import java.util.List;
 /**
  * Created by krisosip on 07/03/2017.
  */
-public class Record {
+public class Record implements Serializable {
+    private static final long serailVersionUID = 1L;
     private static int nextId = 1; //static - belongs to all objects of the class, i.e. is only one among all objects
 
     private int id;
