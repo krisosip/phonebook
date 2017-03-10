@@ -3,6 +3,8 @@ package lv.tele2.javaschool.phonebook;
 import com.sun.prism.impl.Disposer;
 import sun.plugin2.message.Serializer;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,5 +71,10 @@ public class Record implements Serializable {
                 ", phone=" + Arrays.toString(phone) +
                 ", email='" + email + '\'' +
                 '}';
+    }
+
+    private void readObject(ObjectInputStream stream) throws IOException, ClassNotFoundException {
+        stream.defaultReadObject();
+        nextId = Math.max(id + 1, nextId);
     }
 }
