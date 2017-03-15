@@ -20,7 +20,6 @@ public class Record implements Serializable {
     private int id;
     private String name;
     private String[] phone;
-    //private List<String> phone = new ArrayList<>();
     private String email;
 
     public Record() { //constructor

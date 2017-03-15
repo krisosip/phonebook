@@ -10,6 +10,8 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.Scanner;
 
 /**
  * Created by krisosip on 07/03/2017.
@@ -51,7 +53,13 @@ public class PhoneBook implements Serializable{ //i.e. can be stored somewhere
         System.out.println(name);
         System.out.println(phone);
         System.out.println(email);
-        create(name, email, phone);
+        System.out.println("Do you want to save a contact? Enter Y to save, any other key to discard!");
+        Scanner scanner = new Scanner(System.in);
+        String answer = scanner.nextLine();
+        if (Objects.equals(answer.toUpperCase(), "Y") ) {
+            create(name, email, phone);
+            System.out.println("Saved!");
+        }
     }
 
     private JSONObject callNameFake() {
